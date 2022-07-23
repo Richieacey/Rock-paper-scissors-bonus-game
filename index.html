@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&display=swap" rel="stylesheet">
+  
+  <title>Frontend Mentor | Rock, Paper, Scissors</title>
+</head>
+<body>
+  <section>
+    <header>
+      <div class="title">
+        <img src="images/logo-bonus.svg">
+      </div>
+      <div class="score-board">
+        <div class="score-title">SCORE</div>
+        <div class="score">0</div>
+      </div>
+    </header>
+
+    <div class="rules-container">
+      <div class="rules-text-container">
+        <div class="rules-text">RULES</div>
+        <div>
+          <img class="close-button" src="images/icon-close.svg">
+        </div>
+      </div>
+      <div>
+        <img class="rules-image" src="images/image-rules-bonus.svg">
+      </div>
+    </div>
+    <div>
+
+    </div>
+    <div class="empty-container0">
+      <div class="empty-container"></div>
+      <div class="empty-container2"></div>
+    </div>
+    <div class="button-bg-image"></div>
+  
+    <div class="selection">
+      <div class="selection-container">
+        <div class="player-container">
+          <div class="player-text">YOU PICKED</div>
+          <div class="player-gradient">
+            <div class="player-selection">
+              <img class="scissors-image2" src="images/icon-scissors.svg">
+            </div>
+          </div>
+        </div>
+        
+        <div class="final-prompt">
+          <div class="game-over">YOU LOSE</div>
+          <button class="play-btn">PLAY AGAIN</button>
+        </div>
+
+        <div class="house-container">
+          <div class="house-text">THE HOUSE PICKED</div>
+          <div class="house-selection-empty"></div>
+          <div class="house-gradient">
+            <div class="house-selection">
+              <img class="rock-image2" src="images/icon-rock.svg">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <main>
+      <div class="pentagon-container">
+        <img class="background-image" src="images/bg-pentagon.svg">
+        <div class="container">
+          <div data-paper="paper" class="paper-gradient">
+            <button data-paper="paper" class="paper-container">
+              <img data-paper="paper" class="paper-image" src="images/icon-paper.svg">
+            </button>
+          </div>
+          <div data-scissors="scissors" class="scissors-gradient">
+            <div data-scissors="scissors" class="scissors-container">
+              <img data-scissors="scissors" class="scissors-image" src="images/icon-scissors.svg">
+            </div>
+          </div>
+
+          <div data-rock="rock" class="rock-gradient">
+            <div data-rock="rock" class="rock-container">
+              <img data-rock="rock" class="rock-image" src="images/icon-rock.svg">
+            </div>
+          </div>
+
+          <div data-rock="lizard" class="lizard-gradient">
+            <div data-lizard="lizard" class="lizard-container">
+              <img data-lizard="lizard" class="lizard-image" src="images/icon-lizard.svg">
+            </div>
+          </div>
+
+          <div data-spock="spock" class="spock-gradient">
+            <div data-spock="spock" class="spock-container">
+              <img data-spock="spock" class="spock-image" src="images/icon-spock.svg">
+            </div>
+          </div>
+         
+        </div>
+       
+       
+      </div>
+      
+    </main>
+  </section>
+ 
+  <div class="rules-button-container">
+    <button class="reset-score-button">RESET SCORE</button>
+    <button class="rules-button">RULES</button>
+  </div>
+ 
+
+  
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">Richie Ace</a>.
+  </div>
+  <script type="text/javascript" src="script.js"></script>
+</body>
+</html>
