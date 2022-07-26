@@ -23,20 +23,34 @@ let x = window.matchMedia("(max-width: 450px)")
 
 rulesButton.addEventListener("click", () => {
     rules.style.display = "flex";
+    buttonClick.play()
 })
 
 resetScoreButton.addEventListener("click", () =>{
     score.textContent = 0;
     localStorage.clear()
+    buttonClick.play()
 })
 
 
 closeRules.addEventListener("click", () => {
     rules.style.display = "none";
+    buttonClick.play()
 })
 
 playButton.addEventListener("click", () =>{
-    window.location.reload()
+    selectionContainer.style.display = "none";
+    mainSection.style.opacity = "1";
+    emptyContainer.style.display = "none";
+    emptyContainer2.style.display = "none";
+    emptyContainer.style.opacity = "0";
+    emptyContainer2.style.opacity = "0";
+    houseGradient.style.opacity = "0";
+    finalPrompt.style.display = "none";
+    houseSelectionEmpty.style.animationName = "unset";
+
+    // window.location.reload()
+    buttonClick.play()
 })
 
 
@@ -47,7 +61,20 @@ if (score.textContent == isNaN) {
 
 score.textContent = Number(localStorage.getItem("Score"));
 
+const buttonClick = new Audio()
+buttonClick.src = "audio assets/button click.wav"
 
+const houseSelectAudio = new Audio()
+houseSelectAudio.src = "audio assets/House selection.wav"
+
+const loseAudio = new Audio()
+loseAudio.src = "audio assets/LOSE.mp3"
+
+const winAudio = new Audio()
+winAudio.src = "audio assets/WIN.mp3"
+
+const drawTryAgain = new Audio()
+drawTryAgain.src = "audio assets/TRY AGAIN.mp3"
 
 
 rpsButtons.addEventListener("click", e => {
@@ -57,14 +84,14 @@ rpsButtons.addEventListener("click", e => {
         setTimeout(
             function random_selections() {
                 houseSelections[Math.floor(Math.random() * houseSelections.length)]();
-            }, 1000
+            }, 3000
 
         );
 
         
         
     }
-    
+
 
     if (target.dataset.paper) {
         selectionContainer.style.display = "flex";
@@ -72,6 +99,15 @@ rpsButtons.addEventListener("click", e => {
         mainSection.style.opacity = "0";
         emptyContainer.style.display = "block";
         emptyContainer2.style.display = "block";
+        buttonClick.play()
+
+        setTimeout(
+            function strobeAnimation() {
+                houseSelectionEmpty.style.animationName = "strobe";
+            },1000
+        )
+        
+        
         if (x.matches) {
             playerSelection.setAttribute("style","padding-top: 1.88rem;\
             padding-bottom: 1.88rem; padding-left: 2.2rem; padding-right: 2.2rem;")
@@ -86,12 +122,19 @@ rpsButtons.addEventListener("click", e => {
         playerPaperGradient.setAttribute("style","background-color: hsl(230, 89%, 65%); \
         box-shadow: 0px 8px 0px hsl(230, 57%, 51%);");
         houseSelect()
+        setTimeout(
+            function delayHouseAudio() {
+                houseSelectAudio.play()
+            },1000
+        )
+        
 
     }else if (target.dataset.rock) {
         selectionContainer.style.display = "flex";
         pickedPaper.src = "images/icon-rock.svg";
         emptyContainer.style.display = "block";
         emptyContainer2.style.display = "block";
+        buttonClick.play()
         if (x.matches) {
             playerSelection.setAttribute("style","padding-top: 1.88rem;\
             padding-bottom: 1.88rem; padding-left: 2.2rem; padding-right: 2.2rem;")
@@ -104,12 +147,24 @@ rpsButtons.addEventListener("click", e => {
         mainSection.style.opacity = "0";
         playerPaperGradient.setAttribute("style","background-color: hsl(349, 70%, 56%); \
         box-shadow: 0px 8px 0px hsl(349, 71%, 52%)");
+        setTimeout(
+            function delayHouseAudio() {
+                houseSelectAudio.play()
+            },1000
+        )
+
+        setTimeout(
+            function strobeAnimation() {
+                houseSelectionEmpty.style.animationName = "strobe";
+            },1000
+        )
         houseSelect()
     }else if (target.dataset.scissors) {
         selectionContainer.style.display = "flex";
         pickedPaper.src = "images/icon-scissors.svg";
         emptyContainer.style.display = "block";
         emptyContainer2.style.display = "block";
+        buttonClick.play()
         if (x.matches) {
             playerSelection.setAttribute("style","padding-top: 1.88rem;\
             padding-bottom: 1.88rem; padding-left: 2.2rem; padding-right: 2.2rem;")
@@ -122,12 +177,24 @@ rpsButtons.addEventListener("click", e => {
         mainSection.style.opacity = "0";
         playerPaperGradient.setAttribute("style","background-color: hsl(40, 84%, 53%); \
         box-shadow: 0px 8px 0px hsl(39, 88%, 42%)");
+        setTimeout(
+            function delayHouseAudio() {
+                houseSelectAudio.play()
+            },1000
+        )
+
+        setTimeout(
+            function strobeAnimation() {
+                houseSelectionEmpty.style.animationName = "strobe";
+            },1000
+        )
         houseSelect()
     }else if (target.dataset.spock) {
         selectionContainer.style.display = "flex"
         pickedPaper.src = "images/icon-spock.svg";
         emptyContainer.style.display = "block";
         emptyContainer2.style.display = "block";
+        buttonClick.play()
         if (x.matches) {
             playerSelection.setAttribute("style","padding-top: 1.88rem;\
             padding-bottom: 1.88rem; padding-left: 2.6rem; padding-right: 2.6rem;")
@@ -140,12 +207,24 @@ rpsButtons.addEventListener("click", e => {
         mainSection.style.opacity = "0";
         playerPaperGradient.setAttribute("style","background-color: hsl(189, 58%, 57%); \
         box-shadow: 0px 8px 0px hsl(189, 59%, 53%)");
+        setTimeout(
+            function delayHouseAudio() {
+                houseSelectAudio.play()
+            },1000
+        )
+
+        setTimeout(
+            function strobeAnimation() {
+                houseSelectionEmpty.style.animationName = "strobe";
+            },1000
+        )
         houseSelect()
     }else if (target.dataset.lizard) {
         selectionContainer.style.display = "flex"
         pickedPaper.src = "images/icon-lizard.svg";
         emptyContainer.style.display = "block";
         emptyContainer2.style.display = "block";
+        buttonClick.play()
         if (x.matches) {
             playerSelection.setAttribute("style","padding-top: 2rem;\
             padding-bottom: 2rem; padding-left: 2.2rem; padding-right: 2.2rem;")
@@ -158,6 +237,17 @@ rpsButtons.addEventListener("click", e => {
         mainSection.style.opacity = "0";
         playerPaperGradient.setAttribute("style","background-color: hsl(261, 72%, 63%); \
         box-shadow: 0px 8px 0px hsl(261, 73%, 60%)");
+        setTimeout(
+            function delayHouseAudio() {
+                houseSelectAudio.play()
+            },1000
+        )
+
+        setTimeout(
+            function strobeAnimation() {
+                houseSelectionEmpty.style.animationName = "strobe";
+            },1000
+        )
         houseSelect()
     }
 
@@ -179,11 +269,13 @@ rpsButtons.addEventListener("click", e => {
         box-shadow: 0px 8px 0px hsl(230, 57%, 51%)");
         houseGradient.style.opacity = "1"
         
+        
         setTimeout(
             function logic() {
                 if (target.dataset.scissors) {
                     finalPrompt.style.display = "flex";
                     gameOverText.textContent = "YOU WIN";
+                    winAudio.play()
                     emptyContainer.style.opacity = "1";
                     playButton.style.color = "hsl(229, 25%, 31%)";
                     currentScore = score.textContent
@@ -193,10 +285,12 @@ rpsButtons.addEventListener("click", e => {
                 }else if (target.dataset.paper) {
                     finalPrompt.style.display = "flex";
                     gameOverText.textContent = "DRAW";
+                    drawTryAgain.play()
                     playButton.style.color = "green";
                 }else if (target.dataset.rock) {
                     finalPrompt.style.display = "flex";
                     gameOverText.textContent = "YOU LOSE";
+                    loseAudio.play()
                     if (x.matches) {
                         gameOverText.style.fontSize = "3rem";
                     }else {
@@ -216,6 +310,7 @@ rpsButtons.addEventListener("click", e => {
                     }
                     finalPrompt.style.display = "flex";
                     gameOverText.textContent = "YOU LOSE";
+                    loseAudio.play()
                     emptyContainer2.style.opacity = "1";
                     playButton.style.color = "hsl(349, 71%, 52%)";
                     currentScore = score.textContent
@@ -224,7 +319,8 @@ rpsButtons.addEventListener("click", e => {
                 }else if (target.dataset.lizard) {
                     finalPrompt.style.display = "flex";
                     gameOverText.textContent = "YOU WIN";
-                    emptyContainer2.style.opacity = "1";
+                    winAudio.play()
+                    emptyContainer.style.opacity = "1";
                     playButton.style.color = "hsl(229, 25%, 31%)";
                     currentScore = score.textContent
                     currentScore = parseInt(currentScore) + 1
@@ -261,6 +357,7 @@ rpsButtons.addEventListener("click", e => {
                 if (target.dataset.scissors) {
                     finalPrompt.style.display = "flex";
                     gameOverText.textContent = "YOU LOSE";
+                    loseAudio.play()
                     if (x.matches) {
                         gameOverText.style.fontSize = "3rem";
                     }else {
@@ -275,6 +372,7 @@ rpsButtons.addEventListener("click", e => {
                 }else if (target.dataset.paper) {
                     finalPrompt.style.display = "flex";
                     gameOverText.textContent = "YOU WIN";
+                    winAudio.play()
                     emptyContainer.style.opacity = "1";
                     playButton.style.color = " hsl(229, 25%, 31%)";
                     currentScore = score.textContent
@@ -284,10 +382,12 @@ rpsButtons.addEventListener("click", e => {
                 }else if (target.dataset.rock) {
                     finalPrompt.style.display = "flex";
                     gameOverText.textContent = "DRAW";
+                    drawTryAgain.play()
                     playButton.style.color = "green";
                 }else if (target.dataset.spock) {
                     finalPrompt.style.display = "flex";
                     gameOverText.textContent = "YOU WIN";
+                    winAudio.play()
                     emptyContainer.style.opacity = "1";
                     playButton.style.color = "hsl(229, 25%, 31%)";
                     currentScore = score.textContent
@@ -297,6 +397,7 @@ rpsButtons.addEventListener("click", e => {
                 }else if (target.dataset.lizard) {
                     finalPrompt.style.display = "flex";
                     gameOverText.textContent = "YOU LOSE";
+                    loseAudio.play()
                     if (x.matches) {
                         gameOverText.style.fontSize = "3rem";
                     }else {
@@ -338,10 +439,12 @@ rpsButtons.addEventListener("click", e => {
                 if (target.dataset.scissors) {
                     finalPrompt.style.display = "flex";
                     gameOverText.textContent = "DRAW";
+                    drawTryAgain.play()
                     playButton.style.color = "green";
                 }else if (target.dataset.paper) {
                     finalPrompt.style.display = "flex";
                     gameOverText.textContent = "YOU LOSE";
+                    loseAudio.play()
                     if (x.matches) {
                         gameOverText.style.fontSize = "3rem";
                     }else {
@@ -356,6 +459,7 @@ rpsButtons.addEventListener("click", e => {
                 }else if (target.dataset.rock) {
                     finalPrompt.style.display = "flex";
                     gameOverText.textContent = "YOU WIN";
+                    winAudio.play()
                     emptyContainer.style.opacity = "1";
                     playButton.style.color = "hsl(229, 25%, 31%)";
                     currentScore = score.textContent
@@ -365,6 +469,7 @@ rpsButtons.addEventListener("click", e => {
                 }else if (target.dataset.spock) {
                     finalPrompt.style.display = "flex";
                     gameOverText.textContent = "YOU WIN";
+                    winAudio.play()
                     emptyContainer.style.opacity = "1";
                     playButton.style.color = "hsl(229, 25%, 31%)";
                     currentScore = score.textContent
@@ -374,6 +479,7 @@ rpsButtons.addEventListener("click", e => {
                 }else if (target.dataset.lizard) {
                     finalPrompt.style.display = "flex";
                     gameOverText.textContent = "YOU LOSE";
+                    loseAudio.play()
                     if (x.matches) {
                         gameOverText.style.fontSize = "3rem";
                     }else {
@@ -415,6 +521,7 @@ rpsButtons.addEventListener("click", e => {
                 if (target.dataset.paper) {
                     finalPrompt.style.display = "flex";
                     gameOverText.textContent = "YOU WIN";
+                    winAudio.play()
                     emptyContainer.style.opacity = "1";
                     playButton.style.color = "hsl(229, 25%, 31%)";
                     currentScore = score.textContent
@@ -424,6 +531,7 @@ rpsButtons.addEventListener("click", e => {
                 }else if (target.dataset.scissors) {
                     finalPrompt.style.display = "flex";
                     gameOverText.textContent = "YOU LOSE";
+                    loseAudio.play()
                     if (x.matches) {
                         gameOverText.style.fontSize = "3rem";
                     }else {
@@ -438,6 +546,7 @@ rpsButtons.addEventListener("click", e => {
                 }else if (target.dataset.lizard) {
                     finalPrompt.style.display = "flex";
                     gameOverText.textContent = "YOU WIN";
+                    winAudio.play()
                     playButton.style.color = "hsl(229, 25%, 31%)";
                     emptyContainer.style.opacity = "1";
                     currentScore = score.textContent
@@ -447,6 +556,7 @@ rpsButtons.addEventListener("click", e => {
                 }else if (target.dataset.rock) {
                     finalPrompt.style.display = "flex";
                     gameOverText.textContent = "YOU LOSE";
+                    loseAudio.play()
                     if (x.matches) {
                         gameOverText.style.fontSize = "3rem";
                     }else {
@@ -461,6 +571,7 @@ rpsButtons.addEventListener("click", e => {
                 }else if (target.dataset.spock) {
                     finalPrompt.style.display = "flex";
                     gameOverText.textContent = "DRAW";
+                    drawTryAgain.play()
                     playButton.style.color = "green";
                 }
             }, 1000
@@ -491,6 +602,7 @@ rpsButtons.addEventListener("click", e => {
                 if (target.dataset.scissors) {
                     finalPrompt.style.display = "flex";
                     gameOverText.textContent = "YOU WIN";
+                    winAudio.play()
                     emptyContainer.style.opacity = "1";
                     playButton.style.color = "hsl(229, 25%, 31%)";
                     currentScore = score.textContent
@@ -500,6 +612,7 @@ rpsButtons.addEventListener("click", e => {
                 }else if (target.dataset.paper) {
                     finalPrompt.style.display = "flex";
                     gameOverText.textContent = "YOU LOSE";
+                    loseAudio.play()
                     if (x.matches) {
                         gameOverText.style.fontSize = "3rem";
                     }else {
@@ -514,6 +627,7 @@ rpsButtons.addEventListener("click", e => {
                 }else if (target.dataset.rock) {
                     finalPrompt.style.display = "flex";
                     gameOverText.textContent = "YOU WIN";
+                    winAudio.play()
                     emptyContainer.style.opacity = "1";
                     playButton.style.color = "hsl(229, 25%, 31%)";
                     currentScore = score.textContent
@@ -523,6 +637,7 @@ rpsButtons.addEventListener("click", e => {
                 }else if (target.dataset.spock) {
                     finalPrompt.style.display = "flex";
                     gameOverText.textContent = "YOU LOSE";
+                    loseAudio.play()
                     if (x.matches) {
                         gameOverText.style.fontSize = "3rem";
                     }else {
@@ -537,6 +652,7 @@ rpsButtons.addEventListener("click", e => {
                 }else if (target.dataset.lizard) {
                     finalPrompt.style.display = "flex";
                     gameOverText.textContent = "DRAW";
+                    drawTryAgain.play()
                     playButton.style.color = "green";
                 }
             }, 1000
@@ -547,6 +663,14 @@ rpsButtons.addEventListener("click", e => {
     };
 
 })
+
+
+
+
+
+
+
+
 
 
 
