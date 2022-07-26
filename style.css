@@ -135,12 +135,6 @@ section {
     }
 }
 
-.house-selection-empty {
-    animation-duration: 0.7s;
-    animation-iteration-count: infinite;
-    animation-name: unset;
-}
-
 
 @keyframes strobe {
     0% {
