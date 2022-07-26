@@ -103,7 +103,7 @@ rpsButtons.addEventListener("click", e => {
 
         setTimeout(
             function strobeAnimation() {
-                houseSelectionEmpty.style.animationName = "strobe";
+                houseSelectionEmpty.style.animation = "0.7s infinite strobe";
             },1000
         )
         
@@ -155,7 +155,7 @@ rpsButtons.addEventListener("click", e => {
 
         setTimeout(
             function strobeAnimation() {
-                houseSelectionEmpty.style.animationName = "strobe";
+                houseSelectionEmpty.style.animation = "0.7s infinite strobe";
             },1000
         )
         houseSelect()
@@ -185,7 +185,7 @@ rpsButtons.addEventListener("click", e => {
 
         setTimeout(
             function strobeAnimation() {
-                houseSelectionEmpty.style.animationName = "strobe";
+                houseSelectionEmpty.style.animation = "0.7s infinite strobe";
             },1000
         )
         houseSelect()
@@ -215,7 +215,7 @@ rpsButtons.addEventListener("click", e => {
 
         setTimeout(
             function strobeAnimation() {
-                houseSelectionEmpty.style.animationName = "strobe";
+                houseSelectionEmpty.style.animation = "0.7s infinite strobe";
             },1000
         )
         houseSelect()
@@ -245,7 +245,7 @@ rpsButtons.addEventListener("click", e => {
 
         setTimeout(
             function strobeAnimation() {
-                houseSelectionEmpty.style.animationName = "strobe";
+                houseSelectionEmpty.style.animation = "0.7s infinite strobe";
             },1000
         )
         houseSelect()
@@ -663,14 +663,6 @@ rpsButtons.addEventListener("click", e => {
     };
 
 })
-
-
-
-
-
-
-
-
 
 
 
